@@ -16,7 +16,6 @@ const CHARACTER_URL = 'people/:id'
 //le indica a la librería que el request se hará a otra web     
 const DATA = {crossDomain: true}
 
-
 function obtenerPersonaje (id){
     return new Promise((resolve, reject) => {     //NO OLVIDAR QUE ESTOY PASANDO UN CALLBACK (resolve,reject)
         const characterURL = `${API_URL}${CHARACTER_URL.replace(':id', id)}` //reemplazo ':id' por el string '1'
