@@ -12,10 +12,9 @@ no es posible usando callbacks.*/
  */
 //parametros a pasar al get de jquery
 const   API_URL = 'https://swapi.co/api/'
-const CHARACTER_URL = 'people/:id'     
+const CHARACTER_URL = 'people/:id'
 //le indica a la librería que el request se hará a otra web     
 const DATA = {crossDomain: true}
-
 
 function obtenerPersonaje (id){
     return new Promise((resolve, reject) => {     //NO OLVIDAR QUE ESTOY PASANDO UN CALLBACK (resolve,reject)
@@ -27,16 +26,23 @@ function obtenerPersonaje (id){
     })                                //...de Promise.catch
 }
 
-obtenerPersonaje(1)
-    .then(character => {//recibe character
-        console.log(`Hola, el personaje 1 es ${character.name}`)
-        return obtenerPersonaje(2)
-    }).then(character => {//recibe character
-        console.log(`Hola, el personaje 2 es ${character.name}`)
-        return obtenerPersonaje(3)
-    }).then(character => {//recibe character
-        console.log(`Hola, el personaje 3 es ${character.name}`)
-    })
-    .catch(id => {  //recibe id
-        console.log(`Sucedió un error al obtener el personaje ${id}`)
-    })
+function onError(id) {
+    console.log(`No se pudo obtener el personaje ${id}`)  //trato el error
+}
+
+/* //Async-await es la manera más simple y clara de realizar tareas asíncronas. Await detiene la ejecución del programa hasta que todas las 
+promesas sean resueltas. Para poder utilizar esta forma, hay que colocar async antes de la definición de la función, y encerrar el llamado
+a Promises.all() dentro de un bloque try … catch. */
+
+async function obtenerPersonajes() {    //la función se declara como asyncrona para usar await
+    let ids = [1,2,3]
+    let promesas = ids.map( id => obtenerPersonaje(id))//la arrow f recibe cada uno de los elementos del array
+    try {
+        let personajes = await Promise.all(promesas) //cuando todas las promesas se resuelvan, guardame las devoluciones en personajes
+        console.log(personajes)
+    } catch (id) {
+        onError(id)
+    }
+}
+
+obtenerPersonajes()
