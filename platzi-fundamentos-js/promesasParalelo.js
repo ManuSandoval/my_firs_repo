@@ -3,7 +3,7 @@ Las promesas
 Para hacer el llamado a múltiples promesas, nos apoyamos en un array de ids con el que luego construimos otro arreglo de Promesas,
 que pasaremos como parámetro a Promise.all( arregloDePromesas ), 
 Con las promesas podemos encadenar llamadas en paralelo, algo que
-no es posible usando callbacks.*/ }
+no es posible usando callbacks.*/
 /*VENTAJAS DE USAR PROMESAS:
     Evita caer en el 'infierno de los callbacks'.
     Manejo de errores.
@@ -26,7 +26,7 @@ function obtenerPersonaje (id){
     })                                //...de Promise.catch
 }
 
-//PARA PROMESAS EN PARALELO
+//PARA PROMESAS EN PARALELO Y PRESENTADAS ORDENADAMENTE
 let ids = [1,2,3]
 let promesas = ids.map( id => obtenerPersonaje(id))//la arrow f recibe cada uno de los elementos del array
 Promise                                                //  y retorna lo que retorne obtenerPersonaje (PROMESAS)
