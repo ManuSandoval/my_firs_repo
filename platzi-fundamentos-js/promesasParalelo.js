@@ -33,6 +33,8 @@ Promise                                                //  y retorna lo que reto
     .all(promesas)  //recorro todas las promesas
     .then(character => console.log(character)) //trato las promesas cumplidas
     .catch(id => console.log(`No se pudo obtener el personaje ${id}`))  //trato el error. 
+    /*.race() Regresa sólo la promesa que se resuelva primero.*/
+
 /* obtenerPersonaje(1)
     .then(character => {//recibe character
         console.log(`Hola, el personaje 1 es ${character.name}`)
