@@ -7,7 +7,7 @@ no es posible usando callbacks.*/
 /*VENTAJAS DE USAR PROMESAS:
     Evita caer en el 'infierno de los callbacks'.
     Manejo de errores.
-    Calculo de varias promesas a la par.
+    Calculo de varias promesas a la vez.
     Disparar evento cuando termine la llamada asíncrona.
  */
 //parametros a pasar al get de jquery
