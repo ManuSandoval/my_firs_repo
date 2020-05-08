@@ -3,24 +3,24 @@ colaterales en los datos. En otras palabras, que hayan modificaciones en las var
 comportamientos inesperados en el programa. -->
 !DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        const sacha = {
-            nombre: 'Sacha',    
-            edad: 28
-        }
-        const cumpleanos = (persona) => persona.edad++
+      const sacha = {
+        nombre: "Sacha",
+        edad: 28,
+      };
+      const cumpleanos = (persona) => persona.edad++;
 
-        const cumpleanosInmutable = (persona) => ({     //recibe una persona y devuelve una copia del objeto original
-            ...persona,
-            edad: persona.edad + 1
-        })
-
+      const cumpleanosInmutable = (persona) => ({
+        //recibe una persona y devuelve una copia del objeto original
+        ...persona,
+        edad: persona.edad + 1,
+      });
     </script>
-</body>
+  </body>
 </html>
